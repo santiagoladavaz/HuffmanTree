@@ -5,9 +5,9 @@
 #include "PriorityQueue.h"
 
 // INV. DE REPRESENTACION
-// -> El peso del arbol sera igual a la suma de los pesos de sus hijos
-// -> Si es una hoja sus hijos deben ser NULL
-// -> Si es un arbol no tiene un char asociado
+// -> El peso del arbol sera igual a la suma de los pesos de sus hijos.
+// -> Si es una hoja sus hijos deben ser NULL y char asociado.
+// -> Si es un arbol no tiene un char asociado.
 
 
 struct HuffmanTreeStr{
@@ -55,6 +55,7 @@ bool isEmpty(HuffmanTree t){
 
 
 // Libera toda la memoria utilizada por un árbol de Huffman.
+//Hecho de forma iterativa, ayudado por PriorityQueue.
 void deleteHuffmanTree(HuffmanTree& t){
 
         PriorityQueue pendientes = emptyPriorityQueue();
@@ -89,25 +90,33 @@ int weight(HuffmanTree t){
 
 ZipTable buildTableAux(ZipTable zipTable, HuffmanTree tree, BitChain bitChain) {
 
-    //Si es una hoja
+    //Si es una hoja agrego el char a la tabla con su bitChain
     if(tree->t1 == NULL && tree->t2 == NULL) {
-        add(zipTable, tree -> c, bitChain);
+        add(zipTable, tree->c, bitChain);
+
     } else {
+        // Voy recorriendo el arbol izquierdo
         append(bitChain, false);
-        buildTableAux(zipTable, tree -> t1, bitChain);
+        buildTableAux(zipTable, tree->t1, bitChain);
         remove(bitChain);
 
+        //Voy recorriendo el arbol derecho
         append(bitChain, true);
-        buildTableAux(zipTable, tree -> t2, bitChain);
+        buildTableAux(zipTable, tree->t2, bitChain);
         remove(bitChain);
     }
 
     return zipTable;
 }
 
+
+
 ZipTable buildTable(HuffmanTree t) {
+
     ZipTable zipTable = emptyZipTable();
     BitChain bitChain = emptyBitChain();
 
-    return buildTableAux(zipTable, t, bitChain);
+    ZipTable res = buildTableAux(zipTable, t, bitChain);
+
+    return res;
 }
