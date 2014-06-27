@@ -8,9 +8,6 @@
 // -> sizepq nunca puede ser mayor que size
 // -> Los elementos se empezaran a agregar a partir de la posicion 1, ya que la 0 es utilizada para el centinela
 
-
-
-
 struct PriorityQueueStr{
 
     HuffmanTree* htrees; // array de HuffmanTree
@@ -18,6 +15,7 @@ struct PriorityQueueStr{
 	int sizepq; // cantidad de elementos de pq
 
 };
+
 
 
 /*************************************/

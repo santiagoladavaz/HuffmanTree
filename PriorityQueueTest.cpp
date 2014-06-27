@@ -6,9 +6,6 @@
 using namespace std;
 
 
-
-
-
 void testEmptyPriorityQueue(){
     PriorityQueue pq = emptyPriorityQueue();
     assert(size(pq) == 0);

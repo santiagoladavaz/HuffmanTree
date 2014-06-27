@@ -30,8 +30,6 @@ void remove(BitChain& b) {
 
 void write(BitChain b, ofstream& file) {
 	vector<bool> aux(b->bits);
-//	for(unsigned int i=0; i < aux.size(); i++)
-//        file << aux.front();
 	while (!aux.empty()) {
 		file << aux.back();
 		aux.pop_back();

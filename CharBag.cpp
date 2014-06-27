@@ -7,7 +7,7 @@ using namespace std;
 // INV. DE REPRESENTACION
 // -> El listIterator no tiene elementos repetidos
 // -> Las ocurrencias son iguales o mayores a cero
-//
+
 
 
 
@@ -28,9 +28,10 @@ struct CharBagStr{
 // Retorna un CharBag vacío, con capacidad para almacenar n chars.
 CharBag emptyCharBag(int n){
 
-    //Probar siempre con n = 256
+
     CharBag newBag = new CharBagStr;
 
+    //Probar siempre con n = 256
     newBag-> bag= new int[n];
 
     //Inicializo mi bag en 0.
@@ -102,6 +103,7 @@ CharBagIterator iterate(CharBag b){
 // Libera la memoria correspondiente al iterador.
 void deleteCharBagIterator(CharBagIterator& it){
 
+    //Borro solo el iterador, el bag sigue en memoria.
     delete it;
 
 }

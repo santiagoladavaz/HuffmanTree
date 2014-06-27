@@ -40,6 +40,7 @@ HuffmanTree binary(HuffmanTree a, HuffmanTree b){
 
     //El peso de newBinary sera la suma de los pesos de sus hijos
     newBinary->weight = a->weight + b->weight;
+
     newBinary->t1 = a;
     newBinary->t2 = b;
 
@@ -67,7 +68,7 @@ void deleteHuffmanTree(HuffmanTree& t){
             //Agarro el primer elemento de la cola
             HuffmanTree current = dequeue(pendientes);
 
-            //Agrego los hijos de current a la cola
+            //Agrego los hijos de current a la cola,si es que no son NULL
             if(not isEmpty(current->t1))
                 enqueue(pendientes,current->t1);
             if(not isEmpty(current->t2))
