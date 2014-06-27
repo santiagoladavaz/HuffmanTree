@@ -6,7 +6,7 @@ using namespace std;
 
 // INV. DE REPRESENTACION
 // -> El Charbag no tiene elementos repetidos
-// ->
+// -> EL INVARIANTE
 // ->
 
 
