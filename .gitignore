@@ -1,0 +1,7 @@
+*.cbp
+*.depend
+*.layout
+bin/Debug/Huffman
+obj/Debug/*.o
+test.txt*
+main.cpp
