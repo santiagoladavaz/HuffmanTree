@@ -5,15 +5,16 @@
 using namespace std;
 
 // INV. DE REPRESENTACION
-// -> El Charbag no tiene elementos repetidos
-// -> EL INVARIANTE
-// ->
+// -> El listIterator no tiene elementos repetidos
+// -> Las ocurrencias son iguales o mayores a cero
+//
 
 
 
 struct CharBagStr{
 
 	int* bag;
+
 	ArrayList listIterator;
 
 };
@@ -36,7 +37,7 @@ CharBag emptyCharBag(int n){
     for(int i =0; i<n ; i++)
         newBag->bag[i] = 0;
 
-    //Creo la lista donde se guardan los chars que hayan aperecido por primera vez
+    //Creo la lista donde se guardan las posiciones de los chars que hayan aperecido por primera vez
     newBag-> listIterator = emptyArrayList();
 
     return newBag;
