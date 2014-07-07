@@ -29,6 +29,7 @@ PriorityQueue emptyPriorityQueue(){
 
     PriorityQueue pq = new PriorityQueueStr;
     pq->sizepq = 256;
+    // + 1 porque en la posicion 0 va el centinela
     pq->htrees = new HuffmanTree[ pq->sizepq + 1];
     pq->size = 0;
 
@@ -38,6 +39,7 @@ PriorityQueue emptyPriorityQueue(){
     return pq;
 
 }
+
 
 // Libera la memoria utilizada por la PriorityQueue.
 void deletePriorityQueue(PriorityQueue& q){
