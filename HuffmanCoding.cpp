@@ -88,6 +88,8 @@ int main() {
             testCurrentChar();
             testCurrentCount();
             testValid();
+            testRemove();
+            testRemoveCurrent();
 
         std::cout << "TEST HUFFMANTREE" << std::endl;
             testLeaf();

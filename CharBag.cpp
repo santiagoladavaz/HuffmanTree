@@ -13,6 +13,7 @@ using namespace std;
 
 struct CharBagStr{
 
+	//Array de chars con ocurrencias
 	int* bag;
 
 	ArrayList listIterator;
@@ -74,6 +75,16 @@ int get(CharBag& b,unsigned char c){
 }
 
 
+
+void remove(CharBag& b,unsigned char c){
+    b->bag[(int) c] = b->bag[(int) c] - 1;
+
+    if(b->bag[(int) c] == 0){
+        removeL(b->listIterator,b->bag[(int) c]);
+    }
+
+}
+
 ////////////////////
 // Char Bag Iterator
 ///////////////////
@@ -133,6 +144,18 @@ int currentCount(CharBagIterator it){
 
     int indice = getCurrent(it->arrayIterator);
     return it->charBag->bag[indice];
+
+}
+
+
+//Pre: valid(it)
+void removeCurrent(CharBagIterator& it){
+
+    remove(it->charBag, currentChar(it));
+
+    if(currentCount(it) == 0){
+        next(it);
+    }
 
 }
 

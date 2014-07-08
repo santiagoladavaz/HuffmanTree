@@ -61,12 +61,35 @@ int pop(ArrayList& l) {
 	return l->elems[l->last];
 }
 
+void removeL(ArrayList& l, int charB){
+    int encontrado=0;
+    int i=0;
+
+    while (!encontrado && i < l->last){
+       if (l->elems[i] == charB){
+            encontrado = 1;
+            int k = i + 1;
+
+            while (k < l->last){
+                l->elems[k-1] = l->elems[k];
+                k++;
+            }
+
+            l->last--;
+        }
+
+        i++;
+    }
+
+
+}
+
+
 
 struct ArrayListIteratorStr {
 	ArrayList list;
 	int index;
 };
-
 
 
 ArrayListIterator iterate(ArrayList l) {

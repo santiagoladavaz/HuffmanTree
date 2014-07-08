@@ -9,3 +9,5 @@ void testNext();
 void testCurrentChar();
 void testCurrentCount();
 void testValid();
+void testRemove();
+void testRemoveCurrent();

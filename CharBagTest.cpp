@@ -57,6 +57,30 @@ void testGet(){
 }
 
 
+void testRemove(){
+    CharBag charBag = emptyCharBag(256);
+
+    add(charBag,'a');
+    assert(get(charBag,'a') == 1);
+
+    add(charBag,'a');
+    assert(get(charBag,'a') == 2);
+
+    remove(charBag,'a');
+    assert(get(charBag,'a') == 1);
+
+    remove(charBag,'a');
+    assert(get(charBag,'a') == 0);
+
+
+    deleteCharBag(charBag);
+
+    std::cout << "testRemove - OK" << std::endl;
+
+}
+
+
+
 ////////////////////////
 //  Test CharBagIterator
 ///////////////////////
@@ -107,7 +131,6 @@ void testCurrentCount(){
 
 }
 
-
 void testValid(){
     CharBag charBag = emptyCharBag(256);
     add(charBag,'a');
@@ -117,7 +140,31 @@ void testValid(){
 
     deleteCharBagIterator(it);
     std::cout << "testValid - OK" << std::endl;
-
-
 }
 
+void testRemoveCurrent(){
+
+    CharBag charBag = emptyCharBag(256);
+    add(charBag,'a');
+    CharBagIterator it = iterate(charBag);
+
+    assert(currentCount(it) == 1);
+
+    add(charBag,'a');
+    assert(currentCount(it) == 2);
+
+    removeCurrent(it);
+    assert(currentCount(it) == 1);
+
+    removeCurrent(it);
+
+    //Al ser la ocurrencia 0 debe pasar al proximo elemento
+    removeCurrent(it);
+    add(charBag,'b');
+    assert(currentChar(it) == 'b');
+
+
+    deleteCharBagIterator(it);
+    std::cout << "testRemoveCurrent - OK" << std::endl;
+
+}

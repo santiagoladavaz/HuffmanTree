@@ -20,6 +20,8 @@ void add(CharBag& b,unsigned char c);
 int get(CharBag& b,unsigned char c);
 
 
+void remove(CharBag& b,unsigned char c);
+
 // Tipo de un iterador de CharBags
 struct CharBagIteratorStr;
 typedef CharBagIteratorStr* CharBagIterator;
@@ -50,4 +52,8 @@ char currentChar(CharBagIterator it);
 // PRE: valid(it)
 // Complejidad: O(1)
 int currentCount(CharBagIterator it);
+
+
+
+void removeCurrent(CharBagIterator& it);
 

@@ -30,6 +30,8 @@ void push(ArrayList& l, int n);
 // PRE: !isEmpty(l)
 int pop(ArrayList& l);
 
+void removeL(ArrayList& l, int charB);
+
 
 // Estructura de los iteradores de ArrayList.
 struct ArrayListIteratorStr;
