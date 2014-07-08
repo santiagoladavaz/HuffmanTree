@@ -157,6 +157,8 @@ void testRemoveCurrent(){
     assert(currentCount(it) == 1);
 
     removeCurrent(it);
+    assert(currentCount(it) == 0);
+
 
     //Al ser la ocurrencia 0 debe pasar al proximo elemento
     removeCurrent(it);

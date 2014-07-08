@@ -75,10 +75,12 @@ int get(CharBag& b,unsigned char c){
 }
 
 
-
+//Complejidad: En peor caso lineal, ya que puedo que tener que recorrer todo el listIterator para sacar un elemento
 void remove(CharBag& b,unsigned char c){
+    //Le resto uno a la ocurrencia de c
     b->bag[(int) c] = b->bag[(int) c] - 1;
 
+    //Si el nuevo valor es 0 lo saco de la listIterator
     if(b->bag[(int) c] == 0){
         removeL(b->listIterator,b->bag[(int) c]);
     }
@@ -149,10 +151,13 @@ int currentCount(CharBagIterator it){
 
 
 //Pre: valid(it)
+//Complejidad: Lineal
 void removeCurrent(CharBagIterator& it){
 
+    //Le resto uno a la ocurrencia apuntada
     remove(it->charBag, currentChar(it));
 
+    //Si el nuevo valor es 0 paso al siguiente elemento valido
     if(currentCount(it) == 0){
         next(it);
     }
