@@ -157,9 +157,14 @@ void removeCurrent(CharBagIterator& it){
     //Le resto uno a la ocurrencia apuntada
     remove(it->charBag, currentChar(it));
 
-    //Si el nuevo valor es 0 paso al siguiente elemento valido
+    //Si el nuevo valor es 0 trato de pasar al siguiente elemento valido
     if(currentCount(it) == 0){
-        next(it);
+        remove(it->arrayIterator);
+
+        if(valid((it))){
+            next(it);
+        }
+
     }
 
 }
